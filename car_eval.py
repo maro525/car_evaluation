@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 // ライブラリ読み込み
 import pandas as pd
 import numpy as np
