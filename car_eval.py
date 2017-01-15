@@ -3,7 +3,7 @@
 # ライブラリ読み込み
 import pandas as pd
 import numpy as np
-from sklearn import preprocessing, model_selection
+from sklearn import preprocessing, model_selection, metrics
 from sklearn.neighbors import KNeighborsClassifier
 
 
@@ -22,5 +22,8 @@ X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, train_
 clf = KNeighborsClassifier(n_neighbors=3) # KNeighborsClassifierの機械学習モデルをセット
 clf.fit(X_train, y_train) # 機械学習
 
-accuracy = clf.score(X_test, y_test) # テスト用データで答えを予測すし、その正解率を算出
+accuracy = clf.score(X_test, y_test) # テスト用データで答えを予測し、その正解率を算出
 print(accuracy)
+print("Classification report for classifier %s:\n%s\n"
+      % (clf, metrics.classification_report(y_test, clf.predict(X_test))))
+print("Confusion matrix:\n%s" % metrics.confusion_matrix(y_test, clf.predict(X_test)))
