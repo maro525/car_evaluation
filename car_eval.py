@@ -8,7 +8,7 @@ from sklearn.neighbors import KNeighborsClassifier
 
 
 # データ読み込み
-df = pd.read_csv('../data/car.data.txt')
+df = pd.read_csv('car.data.txt')
 df = df.apply(preprocessing.LabelEncoder().fit_transform)
 
 # Xに属性のデータをいれて、yに答えのラベルを入れる
